@@ -1,0 +1,160 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
+.whiteBox,.gradient{
+  padding: 50px;
+  align-items: center;
+  border: 1px solid grey;
+  position:relative;
+}
+.corner,.gradientCorner{
+  position: absolute;
+  padding: 10px;
+  margin-bottom: 0px;
+  bottom: 0;
+  right: 0;
+}
+.corner{
+  background: linear-gradient(to bottom left, #00ffff 0%, #00cc66 101%);
+}
+.gradientCorner{
+  background-color: #4CB7A5;
+}
+h1,.gradientText{
+  color: white
+}
+h1,h3,p.gradientText{
+  line-height: 35px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.gradient{
+  background: linear-gradient(to bottom left, #00ffff 0%, #00cc66 101%);
+}
+.whiteBox{
+   background-color: white;
+   height: auto;
+   height: 100%;
+   box-sizing: border-box;
+}
+.col{
+    flex:1;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.c1{
+    padding: 5px;
+    box-sizing: border-box;
+    width: 8.3333%;
+}
+.c2{
+    padding: 5px;
+    box-sizing: border-box;
+    width: 16.67%;
+}
+.c3{
+    padding: 5px;
+    box-sizing: border-box;
+    width: 25%;
+}
+.c4{
+    padding: 5px;
+    box-sizing: border-box;
+    width: 33.3%;
+}
+.c5{
+    padding: 5px;
+    box-sizing: border-box;
+    width: 41.7%;
+}
+.c6{
+    padding: 5px;
+    box-sizing: border-box;
+    width: 50%;
+}
+.c7{
+    padding: 5px;
+    box-sizing: border-box;
+    width: 58%;
+}
+.c8{
+    padding: 5px;
+    box-sizing: border-box;
+    width: 66%;
+}
+.c9{
+    padding: 5px;
+    box-sizing: border-box;
+    width: 75%;
+}
+.c10{
+    padding: 5px;
+    box-sizing: border-box;
+    width: 83%;
+}
+.c11{
+    padding: 5px;
+    box-sizing: border-box;
+    width: 92%;
+}
+.c12{
+    padding: 5px;
+    box-sizing: border-box;
+    width: 100%;
+}
+.whiteBox:hover .overlay{
+    opacity: 1;
+}
+.gradient:hover .overlay{
+   opacity: 1;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: white;
+}
+
+
+@media (max-width: 1199px) {
+  .c1,
+  .c2,
+  .c3,
+  .c4,
+  .c5,
+  .c6,
+  .c7,
+  .c8,
+  .c9,
+  .c10,
+  .c11,
+  .c12 {
+    width: 100%;ca
+  }
+  .row {
+    flex-wrap: wrap;
+
+  }
+}
+
+
