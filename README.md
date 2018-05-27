@@ -1,24 +1,12 @@
-# Carter FED Test
-Code test for potential Carter front-end developers
-
-## The challenge:
-Use a heady combination of front-end technologies to produce the card grid layout in `/CardGrid.jpg` (don't forget to make it responsive). All the content for the cards is in a .json file - read from this to output your cards onto the page.
-
-The JSON can be found here - http://prototype.carter-dev.net/fed-test/items.json
-
-You can use a framework if you like but avoid plugins - no need to change your style, just code how you normally would.
-
-If you have time, apply some nice hover style to the cards, whatever you like.
-
-Comment where needed.
-
-Feel free to ask questions.
+# Carter FED Test - Matthew Poppell Submission
 
 ## Notes
+Created using Gulp, HTML, SASS, Handlebars.js & Meyerwebs css reset.
 
-### Fonts
-Open Sans - weights: 400, 600, 700
-Available on Google Fonts
+## Noted Browser Incompatibilities
 
-### Icons
-Arrow & document SVG files are provided in the `/svg` directory
+### CSS Grid
+I decided to use CSS-grid as I have not yet had the opportunity and thought it would be a good excuse to play with it. This is not compatable with IE unfortunately, but I feel was worth trying out. For something requiring IE compatibility I would likely use either Bootstrap grid or something custom.  
+
+### SVG via background-img & mask
+Similarly my implementation of the SVG files is not yet compatible with Edge, but was an opportunity for me to play with something differently. Previously I have included SVG files in PHP, or used something like fontawesome for icons, though I could also see using a some javascript to include the SVG's dynamically in the browser for better browser support.

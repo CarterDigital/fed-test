@@ -95,8 +95,7 @@ h2, .h2 {
     padding-left: 1em;
     .download-icon {
       background: $document-icon-color;
-      mask-image: url(svg/document.svg);
-      mask-mode: alpha;
+      mask-image: $icon-url-document;
       display: inline-block;
       height: 1.25em;
       width: 1.25em;
@@ -113,7 +112,6 @@ h2, .h2 {
     width: 1.25em;
     padding: 1.25em;
     .arrow-icon {
-      background-image: $icon-url-arrow-right, none;
       background: $arrow-icon-color;
       mask-image: $icon-url-arrow-right;
       display: inline-block;
@@ -164,9 +162,7 @@ h2, .h2 {
   &.card-download {
     .arrow-container {
       .arrow-icon {
-        background: $icon-url-arrow-down;
         background: $arrow-icon-color;
-        -webkit-mask-image: $icon-url-arrow-down;
         mask-image: $icon-url-arrow-down;
       }
     }

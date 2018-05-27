@@ -124,7 +124,6 @@ h2, .h2 {
       background: #ccc;
       -webkit-mask-image: url(svg/document.svg);
       mask-image: url(svg/document.svg);
-      mask-mode: alpha;
       display: inline-block;
       height: 1.25em;
       width: 1.25em;
@@ -132,7 +131,7 @@ h2, .h2 {
       left: -.5em;
       -webkit-transition: all .5s ease-out;
       transition: all .5s ease-out; }
-  /* line 108, dev/sass/style.scss */
+  /* line 107, dev/sass/style.scss */
   .card .arrow-container {
     right: 0;
     bottom: 0;
@@ -140,9 +139,8 @@ h2, .h2 {
     height: 1.25em;
     width: 1.25em;
     padding: 1.25em; }
-    /* line 115, dev/sass/style.scss */
+    /* line 114, dev/sass/style.scss */
     .card .arrow-container .arrow-icon {
-      background-image: url(svg/arrow-right.svg), none;
       background: #00A9A0;
       -webkit-mask-image: url(svg/arrow-right.svg);
       mask-image: url(svg/arrow-right.svg);
@@ -152,12 +150,12 @@ h2, .h2 {
       -webkit-transition: all .7s ease;
       transition: all .7s ease;
       position: relative; }
-  /* line 126, dev/sass/style.scss */
+  /* line 124, dev/sass/style.scss */
   .card.featured-true {
     grid-column: 1;
     color: rgba(255, 255, 255, 0.9);
     border: 0; }
-    /* line 130, dev/sass/style.scss */
+    /* line 128, dev/sass/style.scss */
     .card.featured-true:before {
       background: -webkit-gradient(linear, left top, right bottom, from(#00A4C8), to(#00AD87));
       background: linear-gradient(to bottom right, #00A4C8 0%, #00AD87 100%);
@@ -168,55 +166,54 @@ h2, .h2 {
       left: 0;
       right: 0;
       z-index: -2; }
-    /* line 142, dev/sass/style.scss */
+    /* line 140, dev/sass/style.scss */
     .card.featured-true:hover h2, .card.featured-true:hover p {
       color: rgba(255, 255, 255, 0.9); }
-    /* line 145, dev/sass/style.scss */
+    /* line 143, dev/sass/style.scss */
     .card.featured-true:hover:after {
       background: #000;
       opacity: 0.15; }
-    /* line 150, dev/sass/style.scss */
+    /* line 148, dev/sass/style.scss */
     .card.featured-true h2 {
       font-size: 1.5em;
       font-weight: 700; }
-    /* line 154, dev/sass/style.scss */
+    /* line 152, dev/sass/style.scss */
     .card.featured-true .arrow-container {
       background: #00766F; }
-      /* line 156, dev/sass/style.scss */
+      /* line 154, dev/sass/style.scss */
       .card.featured-true .arrow-container .arrow-icon {
         background: white; }
-        /* line 158, dev/sass/style.scss */
+        /* line 156, dev/sass/style.scss */
         .card.featured-true .arrow-container .arrow-icon object {
           fill: #00A9A0; }
-  /* line 166, dev/sass/style.scss */
+  /* line 164, dev/sass/style.scss */
   .card.card-download .arrow-container .arrow-icon {
-    background: url(svg/arrow-down.svg);
     background: #00A9A0;
     -webkit-mask-image: url(svg/arrow-down.svg);
     mask-image: url(svg/arrow-down.svg); }
-  /* line 174, dev/sass/style.scss */
+  /* line 170, dev/sass/style.scss */
   .card.card-download:hover .arrow-icon {
     margin-left: 0;
     margin-top: 0.5em; }
 
 @media only screen and (min-width: 576px) {
-  /* line 182, dev/sass/style.scss */
+  /* line 178, dev/sass/style.scss */
   .wrapper {
     grid-template-columns: repeat(2, 1fr); }
-    /* line 185, dev/sass/style.scss */
+    /* line 181, dev/sass/style.scss */
     .wrapper .card.featured-true {
       grid-column: span 2; } }
 
 @media only screen and (min-width: 768px) {
-  /* line 192, dev/sass/style.scss */
+  /* line 188, dev/sass/style.scss */
   .wrapper {
     grid-template-columns: repeat(3, 1fr); } }
 
 @media only screen and (min-width: 992px) {
-  /* line 197, dev/sass/style.scss */
+  /* line 193, dev/sass/style.scss */
   .wrapper {
     grid-template-columns: repeat(4, 1fr); }
-    /* line 199, dev/sass/style.scss */
+    /* line 195, dev/sass/style.scss */
     .wrapper .featured-true h2 {
       font-size: 2em;
       font-weight: 700; } }
