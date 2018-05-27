@@ -1,0 +1,204 @@
+
+// Import variables
+@import "reset";
+
+$icon-url-arrow-right: url(svg/arrow-right.svg);
+$icon-url-arrow-down: url(svg/arrow-down.svg);
+$icon-url-document: url(svg/document.svg);
+$fg-color: #333;
+$fg-featured: rgba(255, 255, 255, .9);
+$light-grey:#ddd;
+$grad-color-blue: #00A4C8;
+$grad-color-green: #00AD87;
+$dark-teal: #00766F;
+$arrow-icon-color: #00A9A0;
+$document-icon-color: #ccc;
+$featured-alt-color: $dark-teal;
+$border: 1px solid $light-grey;
+
+$page-width: 1250px;
+
+$break-desktop: $page-width;
+
+$break-lg:   992px;
+$break-md:   768px;
+$break-sm:   576px;
+
+body {
+ font-family: 'Open sans';
+ line-height: 1.25em;
+}
+
+h2, .h2 {
+  font-size: 1.2em;
+  font-weight: 600;
+  line-height:125%;
+}
+
+.wrapper {
+  width: 72em;
+  max-width: 95%;
+  margin: 2em auto;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 1em;
+}
+
+.card {
+  color: $fg-color;
+  text-decoration: none;
+  border: $border;
+  position: relative;
+  z-index: 2;
+  padding: 3em 2em 6em;
+  transition: all .5s ease-out;
+  &:after {
+    transition: all .5s ease-out;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+    opacity: 0;
+  }
+  &:hover {
+    border-color: $arrow-icon-color;
+    color: $arrow-icon-color;
+    p {
+      font-size: 1.15em;
+    }
+    &:after {
+      background: #fafafa;  
+      opacity: 0.1;  
+      z-index: -1;
+    }
+    .arrow-icon {
+        margin-left:.5em;
+    }
+    .download {
+      .download-icon {
+        background: $arrow-icon-color;
+      }
+    }
+  }
+  p {
+    font-weight: 200;
+    line-height: 150%;
+    transition: all .5s ease-out;
+  }
+  .download {
+    position: absolute;
+    bottom: 1.5em;
+    font-size: 0.9em;
+    padding-left: 1em;
+    .download-icon {
+      background: $document-icon-color;
+      mask-image: url(svg/document.svg);
+      mask-mode: alpha;
+      display: inline-block;
+      height: 1.25em;
+      width: 1.25em;
+      position: absolute;
+      left: -.5em;
+      transition: all .5s ease-out;
+    }
+  }
+  .arrow-container {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    height: 1.25em;
+    width: 1.25em;
+    padding: 1.25em;
+    .arrow-icon {
+      background-image: $icon-url-arrow-right, none;
+      background: $arrow-icon-color;
+      mask-image: $icon-url-arrow-right;
+      display: inline-block;
+      height: 1.25em;
+      width: 1.25em;
+      transition: all .7s ease;
+      position: relative;
+    }
+  }
+  &.featured-true {
+    grid-column: 1;
+    color: $fg-featured;
+    border: 0;
+    &:before {
+      background: linear-gradient(to bottom right, $grad-color-blue 0%, $grad-color-green 100%);
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -2;
+    }
+    &:hover 
+    {
+      h2, p {
+        color: $fg-featured;
+      }
+      &:after {
+        background: #000;  
+        opacity: 0.15;
+      }
+  }
+    h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    }
+    .arrow-container {
+      background: $featured-alt-color;
+      .arrow-icon {
+        background: white;
+        object {
+          fill: $arrow-icon-color;
+        }
+      }
+    }
+  }
+  &.card-download {
+    .arrow-container {
+      .arrow-icon {
+        background: $icon-url-arrow-down;
+        background: $arrow-icon-color;
+        -webkit-mask-image: $icon-url-arrow-down;
+        mask-image: $icon-url-arrow-down;
+      }
+    }
+    &:hover {
+      .arrow-icon {
+          margin-left:0;
+          margin-top: 0.5em;
+      }
+    }
+  }
+}
+@media only screen and (min-width: $break-sm) { 
+  .wrapper {
+    grid-template-columns: repeat(2, 1fr); 
+    .card {
+      &.featured-true {
+        grid-column: span 2;
+      }
+    }
+  }
+}
+@media only screen and (min-width: $break-md) { 
+  .wrapper {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+@media only screen and (min-width: $break-lg) { 
+  .wrapper {
+    grid-template-columns: repeat(4, 1fr); 
+    .featured-true h2 {
+      font-size: 2em;
+      font-weight: 700;
+    }
+  }
+}
