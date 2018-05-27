@@ -1,0 +1,25 @@
+
+{{#items}}
+  <a class="card featured-{{featured}} {{#documentSize}}card-download{{/documentSize}}" href="{{link}}">
+    <h2>
+      {{title}}
+    </h2>
+    </br>
+    {{#description}}
+      <p>
+        {{.}}
+      </p>
+    {{/description}}
+    {{#documentSize}}
+      <span class="download">
+        <span class="download-icon">
+        </span> 
+        PDF ({{.}})
+      </span>
+    {{/documentSize}}
+    <span class="arrow-container">
+      <span class="arrow-icon">
+      </span>
+    </span>
+  </a>
+{{/items}}

@@ -1,0 +1,219 @@
+/* line 5, dev/sass/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* line 26, dev/sass/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+/* line 30, dev/sass/_reset.scss */
+body {
+  line-height: 1; }
+
+/* line 33, dev/sass/_reset.scss */
+ol, ul {
+  list-style: none; }
+
+/* line 36, dev/sass/_reset.scss */
+blockquote, q {
+  quotes: none; }
+
+/* line 39, dev/sass/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+/* line 44, dev/sass/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 27, dev/sass/style.scss */
+body {
+  font-family: 'Open sans';
+  line-height: 1.25em; }
+
+/* line 32, dev/sass/style.scss */
+h2, .h2 {
+  font-size: 1.2em;
+  font-weight: 600;
+  line-height: 125%; }
+
+/* line 38, dev/sass/style.scss */
+.wrapper {
+  width: 72em;
+  max-width: 95%;
+  margin: 2em auto;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 1em; }
+
+/* line 47, dev/sass/style.scss */
+.card {
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  position: relative;
+  z-index: 2;
+  padding: 3em 2em 6em;
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out; }
+  /* line 55, dev/sass/style.scss */
+  .card:after {
+    -webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
+    opacity: 0; }
+  /* line 66, dev/sass/style.scss */
+  .card:hover {
+    border-color: #00A9A0;
+    color: #00A9A0; }
+    /* line 69, dev/sass/style.scss */
+    .card:hover p {
+      font-size: 1.15em; }
+    /* line 72, dev/sass/style.scss */
+    .card:hover:after {
+      background: #fafafa;
+      opacity: 0.1;
+      z-index: -1; }
+    /* line 77, dev/sass/style.scss */
+    .card:hover .arrow-icon {
+      margin-left: .5em; }
+    /* line 81, dev/sass/style.scss */
+    .card:hover .download .download-icon {
+      background: #00A9A0; }
+  /* line 86, dev/sass/style.scss */
+  .card p {
+    font-weight: 200;
+    line-height: 150%;
+    -webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out; }
+  /* line 91, dev/sass/style.scss */
+  .card .download {
+    position: absolute;
+    bottom: 1.5em;
+    font-size: 0.9em;
+    padding-left: 1em; }
+    /* line 96, dev/sass/style.scss */
+    .card .download .download-icon {
+      background: #ccc;
+      -webkit-mask-image: url(svg/document.svg);
+      mask-image: url(svg/document.svg);
+      display: inline-block;
+      height: 1.25em;
+      width: 1.25em;
+      position: absolute;
+      left: -.5em;
+      -webkit-transition: all .5s ease-out;
+      transition: all .5s ease-out; }
+  /* line 107, dev/sass/style.scss */
+  .card .arrow-container {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    height: 1.25em;
+    width: 1.25em;
+    padding: 1.25em; }
+    /* line 114, dev/sass/style.scss */
+    .card .arrow-container .arrow-icon {
+      background: #00A9A0;
+      -webkit-mask-image: url(svg/arrow-right.svg);
+      mask-image: url(svg/arrow-right.svg);
+      display: inline-block;
+      height: 1.25em;
+      width: 1.25em;
+      -webkit-transition: all .7s ease;
+      transition: all .7s ease;
+      position: relative; }
+  /* line 124, dev/sass/style.scss */
+  .card.featured-true {
+    grid-column: 1;
+    color: rgba(255, 255, 255, 0.9);
+    border: 0; }
+    /* line 128, dev/sass/style.scss */
+    .card.featured-true:before {
+      background: -webkit-gradient(linear, left top, right bottom, from(#00A4C8), to(#00AD87));
+      background: linear-gradient(to bottom right, #00A4C8 0%, #00AD87 100%);
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -2; }
+    /* line 140, dev/sass/style.scss */
+    .card.featured-true:hover h2, .card.featured-true:hover p {
+      color: rgba(255, 255, 255, 0.9); }
+    /* line 143, dev/sass/style.scss */
+    .card.featured-true:hover:after {
+      background: #000;
+      opacity: 0.15; }
+    /* line 148, dev/sass/style.scss */
+    .card.featured-true h2 {
+      font-size: 1.5em;
+      font-weight: 700; }
+    /* line 152, dev/sass/style.scss */
+    .card.featured-true .arrow-container {
+      background: #00766F; }
+      /* line 154, dev/sass/style.scss */
+      .card.featured-true .arrow-container .arrow-icon {
+        background: white; }
+        /* line 156, dev/sass/style.scss */
+        .card.featured-true .arrow-container .arrow-icon object {
+          fill: #00A9A0; }
+  /* line 164, dev/sass/style.scss */
+  .card.card-download .arrow-container .arrow-icon {
+    background: #00A9A0;
+    -webkit-mask-image: url(svg/arrow-down.svg);
+    mask-image: url(svg/arrow-down.svg); }
+  /* line 170, dev/sass/style.scss */
+  .card.card-download:hover .arrow-icon {
+    margin-left: 0;
+    margin-top: 0.5em; }
+
+@media only screen and (min-width: 576px) {
+  /* line 178, dev/sass/style.scss */
+  .wrapper {
+    grid-template-columns: repeat(2, 1fr); }
+    /* line 181, dev/sass/style.scss */
+    .wrapper .card.featured-true {
+      grid-column: span 2; } }
+
+@media only screen and (min-width: 768px) {
+  /* line 188, dev/sass/style.scss */
+  .wrapper {
+    grid-template-columns: repeat(3, 1fr); } }
+
+@media only screen and (min-width: 992px) {
+  /* line 193, dev/sass/style.scss */
+  .wrapper {
+    grid-template-columns: repeat(4, 1fr); }
+    /* line 195, dev/sass/style.scss */
+    .wrapper .featured-true h2 {
+      font-size: 2em;
+      font-weight: 700; } }
