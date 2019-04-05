@@ -1,3 +1,11 @@
+<h1>Submission By Masooma Bakhshi</h1>
+Technolgies used are HTML 5, CSS 3, ECMA Script 6, React.js 16.0.0, CSS Grids, Babel 6.26.0, WebPack 3.6.0, Webpack loaders and Webpack server 2.9.1. 
+<h2>Development Setup</h2>
+<strong>install dependencies: </strong>npm install
+<strong>Run server: </strong>npm run dev
+<h2>Production Setup</h2>
+npm run build
+
 # Carter FED Test
 Code test for potential Carter front-end developers
 
