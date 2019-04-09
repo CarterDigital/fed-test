@@ -31,23 +31,34 @@ class Cards extends React.Component {
         console.log(this.state.data);
         return (
             this.state.data.map(item => (
-                    <li key={item.id} data-category={item.category} className={"card" + (item.featured == 'true' ? ' featured' : '')} >
-                        <a title={item.link} href={item.link} />
-                        <h2>{item.title}</h2>
-                        { typeof item.description != 'undefined'
-                            ? <p>{item.description}</p>
-                            : ''
-                        }
-                        { typeof item.documentSize != 'undefined'
-                            ? <div className="card-document">PDF {item.documentSize}</div>
-                            : ''
-                        }
-                        { typeof item.documentSize != 'undefined'
-                            ? <img className="card-cta" src="assets/svg/arrow-down.svg" />
-                            : <img className="card-cta" src="assets/svg/arrow-right.svg" />
-                        }
-                    </li>
+                <Card cardData={item} />
                 ))
+        )
+    }
+}
+
+class Card extends React.Component{
+    constructor(props) {
+        super(props);
+    }
+    render(){
+        return(
+        <li key={this.props.cardData.id} data-category={this.props.cardData.category} className={"card" + (this.props.cardData.featured == 'true' ? ' featured' : '')} >
+            <a title={this.props.cardData.link} href={this.props.cardData.link} />
+            <h2>{this.props.cardData.title}</h2>
+            { typeof this.props.cardData.description != 'undefined'
+                ? <p>{this.props.cardData.description}</p>
+                : ''
+            }
+            { typeof this.props.cardData.documentSize != 'undefined'
+                ? <div className="card-document">PDF {this.props.cardData.documentSize}</div>
+                : ''
+            }
+            { typeof this.props.cardData.documentSize != 'undefined'
+                ? <img className="card-cta" src="assets/svg/arrow-down.svg" />
+                : <img className="card-cta" src="assets/svg/arrow-right.svg" />
+            }
+        </li>
         )
     }
 }

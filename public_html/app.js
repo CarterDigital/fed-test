@@ -50,33 +50,52 @@ var Cards = function (_React$Component) {
         value: function render() {
             console.log(this.state.data);
             return this.state.data.map(function (item) {
-                return React.createElement(
-                    'li',
-                    { key: item.id, 'data-category': item.category, className: "card" + (item.featured == 'true' ? ' featured' : '') },
-                    React.createElement('a', { title: item.link, href: item.link }),
-                    React.createElement(
-                        'h2',
-                        null,
-                        item.title
-                    ),
-                    typeof item.description != 'undefined' ? React.createElement(
-                        'p',
-                        null,
-                        item.description
-                    ) : '',
-                    typeof item.documentSize != 'undefined' ? React.createElement(
-                        'div',
-                        { className: 'card-document' },
-                        'PDF ',
-                        item.documentSize
-                    ) : '',
-                    typeof item.documentSize != 'undefined' ? React.createElement('img', { className: 'card-cta', src: 'assets/svg/arrow-down.svg' }) : React.createElement('img', { className: 'card-cta', src: 'assets/svg/arrow-right.svg' })
-                );
+                return React.createElement(Card, { cardData: item });
             });
         }
     }]);
 
     return Cards;
+}(React.Component);
+
+var Card = function (_React$Component2) {
+    _inherits(Card, _React$Component2);
+
+    function Card(props) {
+        _classCallCheck(this, Card);
+
+        return _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).call(this, props));
+    }
+
+    _createClass(Card, [{
+        key: 'render',
+        value: function render() {
+            return React.createElement(
+                'li',
+                { key: this.props.cardData.id, 'data-category': this.props.cardData.category, className: "card" + (this.props.cardData.featured == 'true' ? ' featured' : '') },
+                React.createElement('a', { title: this.props.cardData.link, href: this.props.cardData.link }),
+                React.createElement(
+                    'h2',
+                    null,
+                    this.props.cardData.title
+                ),
+                typeof this.props.cardData.description != 'undefined' ? React.createElement(
+                    'p',
+                    null,
+                    this.props.cardData.description
+                ) : '',
+                typeof this.props.cardData.documentSize != 'undefined' ? React.createElement(
+                    'div',
+                    { className: 'card-document' },
+                    'PDF ',
+                    this.props.cardData.documentSize
+                ) : '',
+                typeof this.props.cardData.documentSize != 'undefined' ? React.createElement('img', { className: 'card-cta', src: 'assets/svg/arrow-down.svg' }) : React.createElement('img', { className: 'card-cta', src: 'assets/svg/arrow-right.svg' })
+            );
+        }
+    }]);
+
+    return Card;
 }(React.Component);
 
 ReactDOM.render(React.createElement(
