@@ -2,11 +2,17 @@
 # Basic React component to load JSON from the specified endpoint
 # and return each item as a card in an unordered list
 #
-# Constructor: Load the data and call setState to update the data value and re-render the component
-# Render: Log the data and return the li elements from the array map with values
-# DOM Render: Wrap the returned li elements in a ul into the #app element
+# Class Cards:
+# Loads the JSON
+# Sets the state
+# Instantiates a Card for each item in the JSON data
 #
-# Improve: Abstract the card to a separate component and pass the item as a prop to the card
+# Class Card:
+# Accepts the cardData as a prop
+# Renders a card with the values from the supplied cardData
+#
+#
+# DOM Render: Wrap the returned li elements in a ul into the #app element
 #
 # @author Andy Gargan
 */
