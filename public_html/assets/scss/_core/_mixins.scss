@@ -1,0 +1,232 @@
+// =============================================================================
+// Opacity
+// =============================================================================
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: alpha(opacity=$opacity-ie);
+}
+
+// =============================================================================
+// Box Shadow
+// =============================================================================
+@mixin box-shadow($distance, $opacity: rgba(50, 50, 50, 0.6)) {
+-webkit-box-shadow: $distance $opacity;
+-moz-box-shadow:    $distance $opacity;
+box-shadow:         $distance $opacity;
+}
+
+// =============================================================================
+// Clearfix
+// =============================================================================
+@mixin clearfix {
+	&::after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+}
+
+// =============================================================================
+// Font Icon
+// =============================================================================
+// @Description:
+// Use font for icons in all all broswer EVEN IE7
+// Note: Be sure you have imported the font
+// CharaterCode: Example \f001,
+// Psudeo: Defaults to : before if left blank, set to true if want :after
+// Font-Family: Defaults to defined value for $FONT-ICONS in constants.scss
+// @Usage:
+// @include font-icon(CharaterCode, Psudeo, Font-Family);
+// .icon_num_1 { @include font-icon("\f000") } // Uses Before Psuedo
+// .icon_num_2 { @include font-icon("\f001", true) } // Uses After Psuedo
+// .icon_num_3 { @include font-icon("\f001", true, "MY-font") } // Uses After Psuedo and sets a font type
+// --------------------------------------------------------------------------------
+@mixin font-icon($char, $after: false, $font-family: $FONT_ICONS ) {
+
+	.ie7 & { zoom: "expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = #{$char} )" };
+
+	@if $after {
+		&:after,
+		& .after {
+			font-family: $font-family;
+			content: "#{$char}";
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	} @else {
+		&:before,
+		& .before {
+			font-family: $font-family;
+			content: "#{$char}";
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+
+		}
+	}
+}
+
+// =============================================================================
+// Outer Container
+// =============================================================================
+// Makes an element a outer container by centring it in the viewport, clearing its floats, and setting its `max-width`.
+// Although optional, using `outer-container` is recommended. The mixin can be called on more than one element per page, as long as they are not nested.
+//
+// @param {Number [unit]} $local-max-width [$max-width]
+//   Max width to be applied to the element. Can be a percentage or a measure.
+//
+// @example scss - Usage
+//   .element {
+//     @include outer-container(100%);
+//   }
+//
+// @example css - CSS Output
+//   .element {
+//     *zoom: 1;
+//     max-width: 100%;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+//
+//   .element:before, .element:after {
+//     content: " ";
+//     display: table;
+//   }
+//
+//   .element:after {
+//     clear: both;
+//   }
+// --------------------------------------------------------------------------------
+
+@mixin outer-container($local-max-width: $MAX_SITE_WIDTH) {
+  @include clearfix;
+  max-width: $local-max-width;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+// =============================================================================
+// Font Style Mixin
+// =============================================================================
+// @Description:
+// Outputs font-size & line-height for font style maps
+// @Arguments
+// @include font_style(font-map, font-style, line-height);
+// Font map is required argument
+// Font type is optional, default is set by $default_font_type in _core/_fonts.scss
+// Line height style is optional, default is set by $default_font_type in _core/_fonts.scss
+// @Usage:
+// @include font_style(F_SANS);
+// @include font_style(F_SANS, small);
+// @include font_style(F_SANS, small, 1em);
+// --------------------------------------------------------------------------------
+@mixin font_style($font-map, $font-type: $default_font_type, $line-height: $default_line_height) {
+    $font-stack: map_font_stack($font-map);
+    $font-size: map_font_size($font-map, $font-type);
+
+    @if ($font-stack) {
+        // If font stack is declared
+        font-family: #{$font-stack};
+    } @else {
+        // Else fallback to base font family
+        font-family: $default_font_family;
+    }
+
+    @if ($font-size) {
+        // If font-size value exists
+
+        @if $font_size_unit == rem {
+            // If $font_size_unit found in _core/_fonts.scss is set to rem
+            font-size: strip-unit($font-size) + px;
+            font-size: (strip-unit($font-size) / strip-unit($global_font_size)) + rem;
+        } @else if $font_size_unit == em {
+            // If $font_size_unit found in _core/_fonts.scss is set to em
+            font-size: (strip-unit($font-size) / strip-unit($global_font_size)) + em;
+        } @else {
+            // If $font_size_unit found in _core/_fonts.scss is not declared
+            font-size: $font-size;
+        }
+    } @else {
+        // Else fallback to base font size
+
+        @if $font_size_unit == rem {
+            // If $font_size_unit found in _core/_fonts.scss is set to rem
+            font-size: strip-unit($default_font_size) + px;
+            font-size: (strip-unit($default_font_size) / strip-unit($global_font_size)) + rem;
+        } @else if $font_size_unit == em {
+            // If $font_size_unit found in _core/_fonts.scss is set to em
+            font-size: (strip-unit($default_font_size) / strip-unit($global_font_size)) + em;
+        } @else {
+            // If $font_size_unit found in _core/_fonts.scss is not declared
+            font-size: $default_font_size;
+        }
+    }
+
+    @if ($line-height) {
+        // If line-height is an argument of mixin use value
+        line-height: $line-height;
+    } @else {
+        // Else use line height defined in $FONT_STYLES found in _core/_fonts.scss
+        line-height: map_line_height($font-map, $font-style);
+    }
+
+
+}

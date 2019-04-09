@@ -1,0 +1,64 @@
+// =============================================================================
+// Palette color select
+// =============================================================================
+// @Description:
+// Returns the given color from $palettes sass map found in _color.scss
+// Defaults to base color as the returned item.
+// @Usage:
+// font-size: palette(C_GREEN);
+// font-size: toEms(C_GREE, light);
+// --------------------------------------------------------------------------------
+@function palette($palette, $tone: 'base') {
+    @return map-get(map-get($PALETTES, $palette), $tone);
+}
+
+// =============================================================================
+// Font Treatment select
+// =============================================================================
+// @Description:
+// Returns the given treatment name from $treatments sass map found in _atoms_text.scss.
+// Defaults to font size as the returned item.
+// @Usage:
+// font-size: palette(F_FONT_NAME);
+// font-size: toEms(F_FONT_NAME, leading);
+// --------------------------------------------------------------------------------
+@function fontTreatment($treatment, $type: 'size') {
+    @return map-get(map-get($TREATMENTS, $treatment), $type);
+}
+
+// =============================================================================
+// Map Font Size
+// =============================================================================
+// @Description:
+// Returns font size from styles defined in $FONT_STYLES sass-map
+// @Usage:
+// font-size: map_font_size(F_SANS, large)
+// --------------------------------------------------------------------------------
+@function map_font_size($font-map, $font-type) {
+    @return map-get(map-get(map-get($FONT_STYLES, $font-map), $font-type), 'font-size');
+}
+
+// =============================================================================
+// Map Line Height
+// =============================================================================
+// @Description:
+// Returns line height from styles defined in $FONT_STYLES sass-map
+// @Usage:
+// line-height: map_line_height(F_SANS, large)
+// --------------------------------------------------------------------------------
+@function map_line_height($font-map, $font-type) {
+    @return map-get(map-get(map-get($FONT_STYLES, $font-map), $font-type), 'line-height');
+}
+
+// =============================================================================
+// Map Font Stack
+// =============================================================================
+// @Description:
+// Returns font family stack from styles defined in $FONT_STYLES found in _core/_fonts.scss
+
+// @Usage:
+// font-family: map_font_stack(F_SANS)
+// --------------------------------------------------------------------------------
+@function map_font_stack($font-map) {
+    @return map-get(map-get($FONT_STYLES, $font-map), 'stack');
+}

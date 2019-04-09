@@ -1,0 +1,38 @@
+/* . CORE . */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+* {
+    &:focus {
+//         outline: 1px dotted palette(C_GREY);
+    }
+}
+
+html,
+body {
+    width: 100%;
+    min-width: 320px;
+    font-size: $BASE_FONT_SIZE;
+    letter-spacing: $BASE_LETTER_SPACING;
+    line-height: $BASE_LINE_HEIGHT;
+    position: relative;
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: auto;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased !important;
+    text-rendering: optimizeLegibility !important;
+    .lt-ie9 & {
+        min-width: 1280px;
+    }
+}
+
+.l_grid {
+    @include outer-container;
+    position: relative;
+    padding: 0 15px;
+}

@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+// DEPENDENCIES
+@import "neat";
+
+// GLOBAL
+@import "assets/scss/_core/reset",
+        "assets/scss/_core/variables",
+        "assets/scss/_core/functions",
+        "assets/scss/_core/mixins",
+        "assets/scss/_core/colors",
+        "assets/scss/_core/core";
+
+// HELPERS
+@import "_all_atoms";
+
+// MODULES
+@import "_all_atoms";
+@import "_all_molecules";
+@import "_all_organisms";

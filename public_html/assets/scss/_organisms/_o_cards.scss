@@ -1,0 +1,39 @@
+// =============================================================================
+// Cards
+// Defines the layouts for the cards module. A single column up until tablet size of 768px and a 4 column grid above
+// The Featured card occupies 2 columns at tablet and up sizes
+// =============================================================================
+
+.o_cards {
+	margin: 1rem 0;
+
+	$card-layout-grid: (
+		columns: 1,
+		gutter: 0,
+	);
+
+	$card-layout-grid--tablet-up: (
+		columns: 4,
+		gutter: 16px,
+		media: "(min-width: 768px)",
+	);
+
+	.ul {
+		@include grid-container;
+	}
+
+	.card {
+		@include grid-column(1, $card-layout-grid);
+		margin-bottom: 1rem;
+
+		@include grid-media($card-layout-grid--tablet-up) {
+			@include grid-column(1);
+		}
+		&.featured{
+			@include grid-column(1, $card-layout-grid);
+			@include grid-media($card-layout-grid--tablet-up) {
+				@include grid-column(2);
+			}
+		}
+	}
+}
