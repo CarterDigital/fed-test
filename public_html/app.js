@@ -27,17 +27,25 @@ var Cards = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Cards.__proto__ || Object.getPrototypeOf(Cards)).call(this, props));
 
         var dataSrc = 'http://prototype.carter-dev.net/fed-test/items.json';
-
+        // create data as a state value
         _this.state = { data: [] };
-        fetch(dataSrc).then(function (response) {
-            return response.json();
-        }).then(function (data) {
-            return _this.setState({ data: data.items });
-        });
+        // load the data from the src endpoint
+        _this.loadData(dataSrc);
         return _this;
     }
 
     _createClass(Cards, [{
+        key: 'loadData',
+        value: function loadData(dataSrc) {
+            var _this2 = this;
+
+            fetch(dataSrc).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                return _this2.setState({ data: data.items });
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             console.log(this.state.data);

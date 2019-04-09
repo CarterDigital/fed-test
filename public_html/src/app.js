@@ -15,8 +15,13 @@ class Cards extends React.Component {
     constructor(props) {
         super(props);
         const dataSrc = 'http://prototype.carter-dev.net/fed-test/items.json';
-
+        // create data as a state value
         this.state = { data:[] };
+        // load the data from the src endpoint
+        this.loadData(dataSrc);
+    }
+
+    loadData(dataSrc){
         fetch(dataSrc)
             .then(response => response.json())
             .then(data => this.setState({ data: data.items }));
