@@ -1,5 +1,5 @@
-# Carter FED Test
-Code test for potential Carter front-end developers
+# WONGDOODY FED Test
+Code test for potential WONGDOODY front-end developers
 
 ## The challenge:
 Use a heady combination of front-end technologies to produce the card grid layout in `/CardGrid.jpg` (don't forget to make it responsive). All the content for the cards is in a .json file - read from this to output your cards onto the page.
