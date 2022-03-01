@@ -1,0 +1,30 @@
+.App {
+  font-family: 'Open Sans', sans-serif;
+  display: grid;
+  grid-gap: 20px;
+  /* this line below makes the cards responsive by nature */
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  /* grid-template-rows: repeat(2, 1fr); */
+  max-width: 2300px;
+  height: calc(100vh - 40px);
+  margin: 20px auto;
+  @media only screen and (max-width: 500px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+#id1 {
+  grid-column: span 2;
+  background: linear-gradient(110deg, #00a5c6, #00ac8d);
+  color: white;
+}
+@media only screen and (max-width: 888px) {
+  #id1 {
+    grid-column: span 1;
+  }
+}
+
+#id1 > h2 {
+  /* font-size: 64px; */
+  font-size: clamp(30px, 4vw, 64px);
+}
