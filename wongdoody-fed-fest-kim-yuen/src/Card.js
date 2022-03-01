@@ -20,6 +20,14 @@ const CardStyles = styled.div`
   @media only screen and (max-width: 600px) {
     padding: 10px;
   }
+  &:hover {
+    /* transform: scale(1.01); */
+    transform: translateY(-7px);
+
+    transition: 0.25s;
+    transition-timing-function: ease-out;
+    filter: brightness(1.1);
+  }
 `;
 const DocumentStyles = styled.div`
   display: flex;
@@ -60,6 +68,12 @@ const ArrowStyles = styled.div`
     right: 15px;
     bottom: 5px;
   }
+  &:hover {
+    transform: scale(1.01);
+    transition: 0.25s;
+    transition-timing-function: ease-out;
+    filter: brightness(1.25);
+  }
 `;
 
 const ArrowBoxStyles = styled.div`
@@ -86,6 +100,12 @@ const ArrowBoxStyles = styled.div`
     width: 25px;
     right: 15px;
     bottom: 15px;
+  }
+  &:hover {
+    transform: scale(1.01);
+    transition: 0.25s;
+    transition-timing-function: ease-out;
+    filter: brightness(1.25);
   }
 `;
 
